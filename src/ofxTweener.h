@@ -4,6 +4,8 @@
  *
  *  Created by Sander ter Braak on 26-08-10.
  *
+ *  Forked by Hideyuki Saito on 30-08-15
+ *
  */
 
 #include "ofMain.h"
@@ -15,48 +17,48 @@
 #define TWEENMODE_OVERRIDE 0x01
 #define TWEENMODE_SEQUENCE 0x02
 
+template<typename T = double>
 class Tween {
 public:
-	typedef float(ofxTransitions::* easeFunction)(float,float,float,float);
-	float* _var;
-	float _from, _to, _duration,_by, _useBezier;
+	typedef T(ofxTransitions<T>::* easeFunction)(T,T,T,T);
+	T* _var;
+	T _from, _to, _duration,_by, _useBezier;
 	easeFunction _easeFunction;
 	Poco::Timestamp _timestamp;
 };
 
 
+template<typename T = double>
 class ofxTweener : public ofBaseApp {
 
 public:
 	
 	ofxTweener();
-	
-	void addTween(float &var, float to, float time, void (^callback)(float * arg)=NULL);
-	void addTween(float &var, float to, float time, float (ofxTransitions::*ease) (float,float,float,float), void (^callback)(float * arg)=NULL);
-	void addTween(float &var, float to, float time, float (ofxTransitions::*ease) (float,float,float,float), float delay, void (^callback)(float * arg)=NULL);
-	void addTween(float &var, float to, float time, float (ofxTransitions::*ease) (float,float,float,float), float delay, float bezierPoint, void (^callback)(float * arg)=NULL);
     
-	
-	void removeTween(float &var);	
-	void setTimeScale(float scale);
-	void update();
-	void removeAllTweens();	
-	void setMode(int mode);
-	
-	int getTweenCount();	
+    void addTween(T &var, T to, T time, void (^callback)(T * arg)=NULL);
+    void addTween(T &var, T to, T time, T (ofxTransitions<T>::*ease) (T,T,T,T), void (^callback)(T * arg)=NULL);
+    void addTween(T &var, T to, T time, T (ofxTransitions<T>::*ease) (T,T,T,T), T delay, void (^callback)(T * arg)=NULL);
+    void addTween(T &var, T to, T time, T (ofxTransitions<T>::*ease) (T,T,T,T), T delay, T bezierPoint, void (^callback)(T * arg)=NULL);
+    
+    void removeTween(T &var);
+    void setTimeScale(T scale);
+    void update();
+    void removeAllTweens();
+    void setMode(int mode);
+    
+    size_t getTweenCount();
 	
 	
 private:
-	float				_scale;
-	ofxTransitions		a;
-	bool				_override;
-	void				addTween(float &var, float to, float time, float (ofxTransitions::*ease) (float,float,float,float), float delay, float bezierPoint, bool useBezier, void (^callback)(float * arg)=NULL);
-	float				bezier(float b, float e, float t, float p);
-	vector<Tween>		tweens;
-    std::map<float *, void (^)(float * arg)>   callbacks;
+    void addTween(T &var, T to, T time, T (ofxTransitions<T>::*ease) (T,T,T,T), T delay, T bezierPoint, bool useBezier, void (^callback)(T * arg)=NULL);
+    
+	T _scale;
+	ofxTransitions<T> a;
+	bool _override;
+	T bezier(T b, T e, T t, T p);
+	vector<Tween<T> > tweens;
+    std::map<T *, void (^)(T * arg)> callbacks;
     
 };
 
-
-extern ofxTweener Tweener;
 #endif

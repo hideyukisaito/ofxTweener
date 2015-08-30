@@ -5,56 +5,59 @@
  *  Created by Sander ter Braak on 27-08-10.
  *  Copyright 2010 hautetechnique.com. All rights reserved.
  *
+ *  Forked by Hideyuki Saito on 30-08-15
+ *
  */
 
-#include "ofMain.h";
+#include "ofMain.h"
 
 #ifndef _OFXTRANSITIONS
 #define _OFXTRANSITIONS
 
+template<typename T = double>
 class ofxTransitions{
 	public:
-		 float linear(float t,float b , float c, float d);
+		 T linear(T t,T b , T c, T d);
 					 
-		 float easeInSine(float t,float b , float c, float d);
-		 float easeOutSine(float t,float b , float c, float d);
-		 float easeInOutSine(float t,float b , float c, float d);
+		 T easeInSine(T t,T b , T c, T d);
+		 T easeOutSine(T t,T b , T c, T d);
+		 T easeInOutSine(T t,T b , T c, T d);
 
-		 float easeInCubic(float t,float b , float c, float d);
-		 float easeOutCubic(float t,float b , float c, float d);
-		 float easeInOutCubic(float t,float b , float c, float d);
+		 T easeInCubic(T t,T b , T c, T d);
+		 T easeOutCubic(T t,T b , T c, T d);
+		 T easeInOutCubic(T t,T b , T c, T d);
 		 
-		 float easeInQuint(float t,float b , float c, float d);
-		 float easeOutQuint(float t,float b , float c, float d);
-		 float easeInOutQuint(float t,float b , float c, float d);
+		 T easeInQuint(T t,T b , T c, T d);
+		 T easeOutQuint(T t,T b , T c, T d);
+		 T easeInOutQuint(T t,T b , T c, T d);
 		 
-		 float easeInCirc(float t,float b , float c, float d);
-		 float easeOutCirc(float t,float b , float c, float d);
-		 float easeInOutCirc(float t,float b , float c, float d);
+		 T easeInCirc(T t,T b , T c, T d);
+		 T easeOutCirc(T t,T b , T c, T d);
+		 T easeInOutCirc(T t,T b , T c, T d);
 		 
-		 float easeInBack(float t,float b , float c, float d);
-		 float easeOutBack(float t,float b , float c, float d);
-		 float easeInOutBack(float t,float b , float c, float d);
+		 T easeInBack(T t,T b , T c, T d);
+		 T easeOutBack(T t,T b , T c, T d);
+		 T easeInOutBack(T t,T b , T c, T d);
 		 
-		 float easeInQuad(float t,float b , float c, float d);
-		 float easeOutQuad(float t,float b , float c, float d);
-		 float easeInOutQuad(float t,float b , float c, float d);
+		 T easeInQuad(T t,T b , T c, T d);
+		 T easeOutQuad(T t,T b , T c, T d);
+		 T easeInOutQuad(T t,T b , T c, T d);
 		 
-		 float easeInQuart(float t,float b , float c, float d);
-		 float easeOutQuart(float t,float b , float c, float d);
-		 float easeInOutQuart(float t,float b , float c, float d);
+		 T easeInQuart(T t,T b , T c, T d);
+		 T easeOutQuart(T t,T b , T c, T d);
+		 T easeInOutQuart(T t,T b , T c, T d);
 	
-		 float easeInExpo(float t,float b , float c, float d);
-		 float easeOutExpo(float t,float b , float c, float d);
-		 float easeInOutExpo(float t,float b , float c, float d);
+		 T easeInExpo(T t,T b , T c, T d);
+		 T easeOutExpo(T t,T b , T c, T d);
+		 T easeInOutExpo(T t,T b , T c, T d);
 		 
-		 float easeInElastic(float t,float b , float c, float d);
-		 float easeOutElastic(float t,float b , float c, float d);
-		 float easeInOutElastic(float t,float b , float c, float d);
+		 T easeInElastic(T t,T b , T c, T d);
+		 T easeOutElastic(T t,T b , T c, T d);
+		 T easeInOutElastic(T t,T b , T c, T d);
 					 
-		 float easeInBounce(float t,float b , float c, float d);
-		 float easeOutBounce(float t,float b , float c, float d);
-		 float easeInOutBounce(float t,float b , float c, float d);
+		 T easeInBounce(T t,T b , T c, T d);
+		 T easeOutBounce(T t,T b , T c, T d);
+		 T easeInOutBounce(T t,T b , T c, T d);
 		 
 };			 
 
